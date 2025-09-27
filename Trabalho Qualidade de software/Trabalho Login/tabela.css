@@ -1,0 +1,65 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f5f1f1; /* Cor de fundo */
+   
+    font-family: Arial, sans-serif; /* Fonte do texto */
+    font-size: 18px; /* Tamanho da fonte */
+   
+   
+
+}
+#atencao{
+
+    
+    width: 250px; /* Largura da caixa */
+    height: 250px; /* Altura da caixa */  
+    border: 7px solid #0c0000; /* Borda sólida de 2px com cor #333 */
+    border-radius: 30px; /* Bordas arredondadas */
+    padding: 15px; /* Espaçamento interno */
+    margin: 50px auto; /* Espaçamento externo */
+    color: #fd0606; /* Cor do texto */
+   
+}
+button{
+    background-color: rgb(32, 32, 207);
+    border-radius: 7px;
+    border: 2px solid #0c0000;
+    margin-top: 5px; /* Adiciona uma margem de 20px acima do botão */
+    width: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    cursor:pointer;
+    color: white
+}
+@media(max-width:548px){
+    #atencao{
+        width: 70%;
+        align-items: center;
+    }
+    
+}
+
+
+#section{
+   
+    font-size: 15px; /* Tamanho da fonte */
+    padding: 20px; /* Espaçamento interno */
+    color: #fd0606; /* Cor do texto */
+
+}
+#login, #senha{
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+#login:hover{
+  background-color: gainsboro;
+  cursor:pointer;
+}
+#senha:hover{
+background-color: gainsboro;
+  cursor:pointer;
+}

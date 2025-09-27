@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="tabela.css">
+
+</head>
+<body>
+  <section id="atencao">
+    <center>
+      <h2>Cadastro</h2>
+    </center>
+    <center>
+      <input id="login" maxlength="5" placeholder=" Digite o login "><br>
+      <br>
+      <input id="senha" maxlength="4" type="password" placeholder=" Digite a senha "><br>
+      <br>
+      <button onclick="validar()">Entrar</button>
+    </center>
+  </section>
+  <section id="atencao">
+    <center>
+      <h1>Atenção:</h1>
+    </center>
+    <h3>O login precisa conter apenas 5 digitos com apenas número ímpares.</h3>
+    <h3>A senha precisa ser de apenas 4 dígitos com números pares.</h3>
+  </section>
+  <script>
+    function validar() {
+      let login = document.getElementById('login').value;
+      let senha = document.getElementById('senha').value;
+      let loginValido = /^[13579]{5}$/.test(login);
+      let senhaValida = /^[02468]{4}$/.test(senha);
+      if (loginValido && senhaValida) {
+        alert('Login e senha válidos!');
+      } else {
+        alert('Login ou senha inválidos!\n\nLembre-se:\n- O login deve conter 5 digitos ímpares.\n - A senha deve conter 4 digitos pares.');
+      }
+    }
+  </script>
+</body>
+</html>

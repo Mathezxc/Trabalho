@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" "type=text/css" href="formviagem.css">
+    
+    <title>Impressão de bilhete
+    </title>
+</head>
+<body>
+    <center>
+    <h2>Dados da passagem</h2>
+    </center>
+    <div id='dadoscadastro'></div>
+
+    <script>
+        //recuperar dados do sessionStorage
+        const nome = sessionStorage.getItem('nome');
+        const cpf = sessionStorage.getItem('cpf');
+        const origem = sessionStorage.getItem('viagemorigem');
+       const destino = sessionStorage.getItem('viagemdestino');
+
+        //exibir dados na página
+        if (nome && cpf && origem && destino){
+            document.getElementById('dadoscadastro').innerHTML = `
+            <p><strong>Nome:</strong> ${nome}</p>
+            <p><strong>CPF:</strong> ${cpf}</p>
+            <p><strong>origem:</strong> ${origem}</p>
+            <p><strong>destino:</strong> ${destino}</p>
+            `;
+        } else {
+            document.getElementById('dadoscadastro').innerHTML = 
+            '<p>Dados não encontrados.</p>'
+            
+        }
+        
+    </script>
+</body>
+</html>
