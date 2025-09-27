@@ -1,0 +1,16 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+#caixas{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid grey;
+    margin: 50px auto;
+    padding: 20px;
+    width: 400px;
+}
+
+#botton{
+    font-size: 200px;
+}

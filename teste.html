@@ -1,0 +1,88 @@
+html
+Copiar código
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Ingresso</title>
+    <script>
+        function validarFormulario() {
+            // Obtendo os valores dos campos
+            const numeroIngresso = document.getElementById('numero-ingresso').value;
+            const idade = document.getElementById('idade').value;
+            const mensagemErro = document.getElementById('mensagem-erro');
+
+            // Limpando a mensagem de erro anterior
+            mensagemErro.textContent = '';
+
+            // Validação do número do ingresso
+            if (numeroIngresso.length < 5) {
+                mensagemErro.textContent += 'O número do ingresso deve ter pelo menos 5 caracteres.\n';
+            }
+
+            // Validação da idade
+            if (idade < 18) {
+                mensagemErro.textContent += 'Você deve ter 18 anos ou mais.\n';
+            }
+
+            // Se houver erros, não enviar o formulário
+            if (mensagemErro.textContent !== '') {
+                return false;
+            }
+
+            // Se tudo estiver correto, pode enviar o formulário
+            alert('Formulário enviado com sucesso!');
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Validação de Ingresso</h1>
+    <form onsubmit="return validarFormulario()">
+        <div>
+            <label for="numero-ingresso">Número do Ingresso:</label>
+            <input type="text" id="numero-ingresso" required>
+        </div>
+        <div>
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" required>
+        </div>
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+        <div id="mensagem-erro" style="color: red;"></div>
+    </form>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+CPF:<input  id="cpf" maxlength="11"><br><br>
+<button onclick="verificarAcesso()">Enviar</button>
+<div id="resultados"></div>
+<script>
+// Função para verificar ingresso e idade
+function verificarAcesso() {
+// Limpar resultados anteriores
+const resultadosDiv = document.getElementById('resultados');
+ // Obter valores de entrada
+ const CPF = document.getElementById('cpf').value;
+// Validar ingresso (deve ter pelo menos 5 caracteres)
+if (CPF.length === 11) {
+sessionStorage.setItem('CPF', CPF); // sessionStorage.setItem:permite armazenar dados temporariamente no navegador durante a sessão atual.
+window.location.href = 'viagem.html'
+} else {
+ alert('ACESSO NEGADO:Verifique as informações.'); }
+}
+</script>
+</body>
+</html>

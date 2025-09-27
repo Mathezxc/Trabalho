@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" "type=text/css" href="formviagem.css">
+    <title>Verificação de Cadastro</title>
+    <style>
+        
+       
+        .pass { color: green; }
+        .fail { color: red; }
+    </style>
+</head>
+<body>
+    <center>
+    <h2>Formulário de Viagem</h2>
+    </center>
+
+    <!-- Formulário para entrada de dados -->
+<center>
+  Nome completo:   <input id="nome"><br><br>
+CPF Passageiro:    <input id="cpf"maxlength="11"><br><br>
+Origem da Viagem:  <input id="origem"><br><br>
+Destino da Viagem: <input id="destino"><br><br>
+<button onclick="verificarCadastro()">Imprimir Bilhete</button>
+</center>
+<!---
+Anulado para segunda parte do trabalho
+<h3>Resultados:</h3>-->
+<div id="resultados"></div>
+
+
+    <script>    
+        // Função para verificar os campos
+        function verificarCadastro() {
+            // Limpar resultados anteriores
+            const resultadosDiv = document.getElementById('resultados');
+            //resultadosDiv.innerHTML = '';
+
+            // Obter valores de entrada
+            const nome = document.getElementById('nome').value;
+            const cpf = document.getElementById('cpf').value;
+            const viagemorigem = document.getElementById('origem').value;
+            const viagemdestino = document.getElementById('destino').value;
+
+            //Validar nome (deve ter pelo menos 3 letras)
+            if (nome.length >= 3) {
+                sessionStorage.setItem('nome', nome);
+                window.location.href = 'impressao.html' 
+                
+                //resultadosDiv.innerHTML += '<p class="pass">✔️ Nome válido</p>';
+            } else {
+                alert('O BILHETE NÃO PODE SER IMPRESSO: O campo nome precisa ter mais que 2 letras. ');
+                
+                //resultadosDiv.innerHTML += '<p class="fail">❌ Nome inválido (mínimo 3 letras)</p>';
+            }
+
+            // Validar Cpf (deve conter 11 dígitos)
+            if (cpf.length == 11) {
+                sessionStorage.setItem('cpf', cpf);
+                window.location.href = 'impressao.html'
+                
+                //resultadosDiv.innerHTML += '<p class="pass">✔️ cpf válido</p>';
+
+            } else {
+                alert('O BILHETE NÃO PODE SER IMPRESSO: O campo cpf precisa ter 11 digitos. ');
+                
+                //resultadosDiv.innerHTML += '<p class="fail">❌ cpf inválido (deve 11 dígitos)</p>';
+            }
+
+            //Validar origem e destino
+           if(viagemorigem==="Belo Horizonte" || viagemorigem ==="Rio de Janeiro" || viagemorigem=== "Salvador" ||
+            viagemorigem==="belo horizonte" || viagemorigem ==="rio de janeiro" || viagemorigem=== "salvador" ||
+            viagemorigem==="BELO HORIZONTE" || viagemorigem ==="RIO DE JANEIRO" || viagemorigem=== "SALVADOR"
+           ) {
+            sessionStorage.setItem('viagemorigem', viagemorigem);
+            window.location.href = 'impressao.html'  
+            
+            //resultadosDiv.innerHTML += '<p class="pass">✔️ Origem válido</p>';
+            } else {
+                alert('O BILHETE NÃO PODE SER IMPRESSO: Escolha entre Rio de Janeiro, Belo Horizonte ou Salvador. ');
+                
+                //resultadosDiv.innerHTML += '<p class="fail">❌ Origem inválido (Escolha entre Belo Horizonte, Rio de Janeiro ou Salvador)</p>';
+            }
+            
+            if(viagemdestino === "Belo Horizonte" || viagemdestino ==="Rio de Janeiro" || viagemdestino=== "Salvador" ||
+                viagemdestino === "belo horizonte" || viagemdestino ==="rio de janeiro" || viagemdestino=== "salvador" ||
+               viagemdestino === "BELO HORIZONTE" || viagemdestino ==="RIO DE JANEIRO" || viagemdestino=== "SALVADOR"
+            ) {
+                sessionStorage.setItem('viagemdestino', viagemdestino);
+                window.location.href = 'impressao.html'
+                
+                //resultadosDiv.innerHTML += '<p class="pass">✔️ Destino válido</p>';
+            } else {
+                alert('O BILHETE NÃO PODE SER IMPRESSO: Escolha entre Rio de Janeiro, Belo Horizonte ou Salvador. ');
+                
+                
+                //resultadosDiv.innerHTML += '<p class="fail">❌ Destino inválido (Escolha entre Belo Horizonte, Rio de Janeiro ou Salvador)</p>';
+            }
+        }
+    </script>
+</body>
+</html>
